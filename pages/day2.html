@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: Looking Back | English Practice B1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .past-card {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+        }
+        .used-to-card {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+        .expression-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-language text-indigo-600 text-2xl"></i>
+                    <a href="../index.html" class="text-xl font-bold text-gray-800">English Practice B1</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    
+                    <!-- Days Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="nav-link text-indigo-600 font-medium flex items-center">
+                            Lessons <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </button>
+                        <div class="dropdown-content mt-2 py-2">
+                            <a href="day1.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 1: My Typical Day</a>
+                            <a href="day2.html" class="block px-4 py-2 text-indigo-600 bg-indigo-50 font-medium">Day 2: Looking Back</a>
+                            <a href="day3.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 3: Storytelling</a>
+                            <a href="day4.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                        </div>
+                    </div>
+                    
+                    <a href="../index.html#resources" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4">
+                    <a href="../index.html" class="text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    <div class="pl-4 border-l-2 border-indigo-200">
+                        <p class="text-sm text-gray-500 font-semibold mb-2">Lessons:</p>
+                        <a href="day1.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 1: My Typical Day</a>
+                        <a href="day2.html" class="block py-2 text-indigo-600 font-medium">Day 2: Looking Back</a>
+                        <a href="day3.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 3: Storytelling</a>
+                        <a href="day4.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                    </div>
+                    <a href="../index.html#resources" class="text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Day 2 Content -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="text-indigo-600 font-semibold">Day 2</span>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">Looking Back: Talking About the Past</h1>
+                    <p class="text-gray-600 mt-4">Learn how to talk about past events, experiences, and activities using proper grammar and expressions.</p>
+                </div>
+                
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg mb-8">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-indigo-500 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-indigo-800">Learning Objectives</h3>
+                            <div class="mt-2 text-sm text-indigo-700">
+                                <p>By the end of this session, you will be able to:</p>
+                                <ul class="list-disc ml-5 mt-2">
+                                    <li>Use simple past tense correctly</li>
+                                    <li>Talk about past habits with "used to"</li>
+                                    <li>Use expressions for reflecting on the past</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Simple Past Tense Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-history mr-3 text-orange-500"></i> Simple Past Tense
+                    </h2>
+                    
+                    <div class="past-card text-gray-800 rounded-xl p-6 mb-8 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4">Regular Verbs: Add -ed</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Positive</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-orange-700">cleaned</span> my room yesterday."</p>
+                                <p class="text-gray-700">"She <span class="font-bold text-orange-700">worked</span> late last night."</p>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Negative</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-orange-700">didn't clean</span> my room."</p>
+                                <p class="text-gray-700">"She <span class="font-bold text-orange-700">didn't work</span> late."</p>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Question</h4>
+                                <p class="text-gray-700">"<span class="font-bold text-orange-700">Did</span> you <span class="font-bold text-orange-700">clean</span> your room?"</p>
+                                <p class="text-gray-700">"<span class="font-bold text-orange-700">Did</span> she <span class="font-bold text-orange-700">work</span> late?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="past-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4">Irregular Verbs: Different Forms</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Positive</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-orange-700">had</span> lunch at 1 PM."</p>
+                                <p class="text-gray-700">"We <span class="font-bold text-orange-700">went</span> to the park."</p>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Negative</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-orange-700">didn't have</span> lunch."</p>
+                                <p class="text-gray-700">"We <span class="font-bold text-orange-700">didn't go</span> to the park."</p>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Question</h4>
+                                <p class="text-gray-700">"<span class="font-bold text-orange-700">Did</span> you <span class="font-bold text-orange-700">have</span> lunch?"</p>
+                                <p class="text-gray-700">"<span class="font-bold text-orange-700">Did</span> they <span class="font-bold text-orange-700">go</span> to the park?"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-white p-4 rounded-lg border border-orange-200">
+                            <h4 class="font-bold text-orange-800 mb-2">Common Irregular Verbs:</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                <div>
+                                    <p class="font-semibold">go → went</p>
+                                    <p class="font-semibold">eat → ate</p>
+                                    <p class="font-semibold">see → saw</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">take → took</p>
+                                    <p class="font-semibold">make → made</p>
+                                    <p class="font-semibold">come → came</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">do → did</p>
+                                    <p class="font-semibold">get → got</p>
+                                    <p class="font-semibold">think → thought</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">run → ran</p>
+                                    <p class="font-semibold">speak → spoke</p>
+                                    <p class="font-semibold">write → wrote</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Used To Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-redo-alt mr-3 text-purple-500"></i> "Used To" for Past Habits
+                    </h2>
+                    
+                    <div class="used-to-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-bold mb-2 text-purple-800">Positive</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-purple-700">used to play</span> soccer when I was younger."</p>
+                                <p class="text-gray-700">"She <span class="font-bold text-purple-700">used to live</span> in London."</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-bold mb-2 text-purple-800">Negative</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-purple-700">didn't use to play</span> tennis."</p>
+                                <p class="text-gray-700">"He <span class="font-bold text-purple-700">didn't use to like</span> coffee."</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-bold mb-2 text-purple-800">Question</h4>
+                                <p class="text-gray-700">"<span class="font-bold text-purple-700">Did</span> you <span class="font-bold text-purple-700">use to play</span> an instrument?"</p>
+                                <p class="text-gray-700">"<span class="font-bold text-purple-700">Did</span> they <span class="font-bold text-purple-700">use to live</span> here?"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border border-purple-200">
+                            <h4 class="font-bold text-purple-800 mb-2">When to Use "Used To":</h4>
+                            <ul class="list-disc ml-5 text-gray-700 space-y-2">
+                                <li>For past actions or activities we no longer do</li>
+                                <li>For past states or situations that have changed</li>
+                                <li>For past habits that are different from present habits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Past Expressions Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-comment-dots mr-3 text-green-600"></i> Expressions for Talking About the Past
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Expression Card 1 -->
+                        <div class="expression-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-cloud-sun text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Good old days</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">A nostalgic reference to a better time in the past</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <p class="font-semibold text-green-800">Example:</p>
+                                <p class="text-gray-700">"In the <span class="font-bold text-green-700">good old days</span>, we played outside until dark."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Expression Card 2 -->
+                        <div class="expression-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-calendar-day text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Back in the day</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">Referring to a time in the past, often with nostalgia</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <p class="font-semibold text-green-800">Example:</p>
+                                <p class="text-gray-700">"<span class="font-bold text-green-700">Back in the day</span>, we didn't have smartphones."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Expression Card 3 -->
+                        <div class="expression-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Back then</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">Referring to a specific time in the past</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <p class="font-semibold text-green-800">Example:</p>
+                                <p class="text-gray-700">"<span class="font-bold text-green-700">Back then</span>, I lived in a small apartment."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Expression Card 4 -->
+                        <div class="expression-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-brain text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Now that I think about it</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">When you realize something after reflection</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <p class="font-semibold text-green-800">Example:</p>
+                                <p class="text-gray-700">"<span class="font-bold text-green-700">Now that I think about it</span>, that was a bad idea."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Expression Card 5 -->
+                        <div class="expression-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-eye text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">In hindsight</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">Understanding a situation only after it has happened</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <p class="font-semibold text-green-800">Example:</p>
+                                <p class="text-gray-700">"<span class="font-bold text-green-700">In hindsight</span>, I should have studied more."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Expression Card 6 -->
+                        <div class="expression-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-thumbs-up text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">It was all for the best</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">Saying that something turned out well despite difficulties</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <p class="font-semibold text-green-800">Example:</p>
+                                <p class="text-gray-700">"Losing that job was hard, but <span class="font-bold text-green-700">it was all for the best</span>."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Past Encounters Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-people-arrows mr-3 text-blue-600"></i> Past Encounters & Discoveries
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Encounter Card 1 -->
+                        <div class="bg-blue-50 border-l-4 border-blue-500 text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-running text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Run into / Ran into</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To meet someone unexpectedly</p>
+                            <div class="bg-white p-4 rounded-lg border border-blue-100">
+                                <p class="font-semibold text-blue-800">Examples:</p>
+                                <p class="text-gray-700">"I <span class="font-bold text-blue-700">ran into</span> my old teacher at the supermarket."</p>
+                                <p class="text-gray-700">"We often <span class="font-bold text-blue-700">run into</span> each other at the gym."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Encounter Card 2 -->
+                        <div class="bg-blue-50 border-l-4 border-blue-500 text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-walking text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Come across</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To find or discover something by chance</p>
+                            <div class="bg-white p-4 rounded-lg border border-blue-100">
+                                <p class="font-semibold text-blue-800">Examples:</p>
+                                <p class="text-gray-700">"I <span class="font-bold text-blue-700">came across</span> some old photos while cleaning."</p>
+                                <p class="text-gray-700">"She <span class="font-bold text-blue-700">comes across</span> interesting articles online."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Practice Section -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-pencil-alt mr-3 text-indigo-600"></i> Practice Exercises
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 1: Complete the Sentences</h3>
+                            <p class="text-gray-600 mb-4">Fill in the blanks with the correct past tense form of the verb.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">1</span>
+                                    <div>
+                                        <p class="text-gray-800">Yesterday, I __________ (clean) my entire apartment.</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">2</span>
+                                    <div>
+                                        <p class="text-gray-800">She __________ (not/have) time for lunch yesterday.</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">3</span>
+                                    <div>
+                                        <p class="text-gray-800">__________ you __________ (run into) anyone interesting last week?</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">4</span>
+                                    <div>
+                                        <p class="text-gray-800">I __________ (use to play) tennis every weekend when I was younger.</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 2: Write About Your Past</h3>
+                            <p class="text-gray-600 mb-4">Write a short paragraph about your past experiences using the grammar and expressions we learned.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <textarea class="w-full h-40 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Write about your past experiences here..."></textarea>
+                                <div class="mt-4 flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span>Try to use at least 3 expressions and both regular and irregular past tense verbs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation between days -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex justify-between">
+                <a href="day1.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    <i class="fas fa-arrow-left mr-2"></i> Previous: Day 1
+                </a>
+                <a href="day3.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    Next: Day 3 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-language text-indigo-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">English Practice B1</h3>
+                    </div>
+                    <p class="text-gray-400">Improve your English skills with our structured B1 level practice classes.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="day1.html" class="text-gray-400 hover:text-white transition">Day 1</a></li>
+                        <li><a href="day2.html" class="text-gray-400 hover:text-white transition">Day 2</a></li>
+                        <li><a href="day3.html" class="text-gray-400 hover:text-white transition">Day 3</a></li>
+                        <li><a href="day4.html" class="text-gray-400 hover:text-white transition">Day 4</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Worksheets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Audio Lessons</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Video Content</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Reading Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>contact@englishb1.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+2519...</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Maraki English</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 English Practice B1 Class. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

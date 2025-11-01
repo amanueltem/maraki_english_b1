@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: My Typical Day | English Practice B1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .vocab-card {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            border-left: 4px solid #00bcd4;
+        }
+        .grammar-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-language text-indigo-600 text-2xl"></i>
+                    <a href="../index.html" class="text-xl font-bold text-gray-800">English Practice B1</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    
+                    <!-- Days Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="nav-link text-indigo-600 font-medium flex items-center">
+                            Lessons <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </button>
+                        <div class="dropdown-content mt-2 py-2">
+                            <a href="day1.html" class="block px-4 py-2 text-indigo-600 bg-indigo-50 font-medium">Day 1: My Typical Day</a>
+                            <a href="day2.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 2: Looking Back</a>
+                            <a href="day3.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 3: Storytelling</a>
+                            <a href="day4.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                        </div>
+                    </div>
+                    
+                    <a href="../index.html#resources" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4">
+                    <a href="../index.html" class="text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    <div class="pl-4 border-l-2 border-indigo-200">
+                        <p class="text-sm text-gray-500 font-semibold mb-2">Lessons:</p>
+                        <a href="day1.html" class="block py-2 text-indigo-600 font-medium">Day 1: My Typical Day</a>
+                        <a href="day2.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 2: Looking Back</a>
+                        <a href="day3.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 3: Storytelling</a>
+                        <a href="day4.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                    </div>
+                    <a href="../index.html#resources" class="text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Day 1 Content -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="text-indigo-600 font-semibold">Day 1</span>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">My Typical Day</h1>
+                    <p class="text-gray-600 mt-4">Learn vocabulary and grammar to describe your daily routines and activities.</p>
+                </div>
+                
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg mb-8">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-indigo-500 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-indigo-800">Learning Objectives</h3>
+                            <div class="mt-2 text-sm text-indigo-700">
+                                <p>By the end of this session, you will be able to:</p>
+                                <ul class="list-disc ml-5 mt-2">
+                                    <li>Use vocabulary related to daily routines</li>
+                                    <li>Apply simple present tense correctly</li>
+                                    <li>Describe your typical day in English</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vocabulary Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-book mr-3 text-cyan-600"></i> Daily Routine Vocabulary
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Vocabulary Card 1 -->
+                        <div class="vocab-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-cyan-100 text-cyan-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-walking text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Go ahead / Head out</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To leave or start going somewhere</p>
+                            <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-100">
+                                <p class="font-semibold text-cyan-800">Example:</p>
+                                <p class="text-gray-700">"I usually <span class="font-bold text-cyan-700">head out</span> for work at 8 AM."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Vocabulary Card 2 -->
+                        <div class="vocab-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-cyan-100 text-cyan-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-train text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Commute</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To travel regularly between home and work</p>
+                            <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-100">
+                                <p class="font-semibold text-cyan-800">Example:</p>
+                                <p class="text-gray-700">"I <span class="font-bold text-cyan-700">commute</span> to work by train every day."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Vocabulary Card 3 -->
+                        <div class="vocab-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-cyan-100 text-cyan-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Clock in / Clock out</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To record the time you start/finish work</p>
+                            <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-100">
+                                <p class="font-semibold text-cyan-800">Example:</p>
+                                <p class="text-gray-700">"Employees must <span class="font-bold text-cyan-700">clock in</span> when they arrive."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Vocabulary Card 4 -->
+                        <div class="vocab-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-cyan-100 text-cyan-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-couch text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Unwind / Wind down</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To relax after a period of work or tension</p>
+                            <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-100">
+                                <p class="font-semibold text-cyan-800">Example:</p>
+                                <p class="text-gray-700">"I like to <span class="font-bold text-cyan-700">wind down</span> with a book in the evening."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Vocabulary Card 5 -->
+                        <div class="vocab-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-cyan-100 text-cyan-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-comments text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Break the ice</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To make people feel more comfortable in social situations</p>
+                            <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-100">
+                                <p class="font-semibold text-cyan-800">Example:</p>
+                                <p class="text-gray-700">"I told a joke to <span class="font-bold text-cyan-700">break the ice</span> at the meeting."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Vocabulary Card 6 -->
+                        <div class="vocab-card text-gray-800 rounded-xl p-6 card-hover shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-cyan-100 text-cyan-600 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-utensils text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Grab a bite</h3>
+                            </div>
+                            <p class="mb-4 text-gray-700">To get something to eat quickly</p>
+                            <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-100">
+                                <p class="font-semibold text-cyan-800">Example:</p>
+                                <p class="text-gray-700">"Let's <span class="font-bold text-cyan-700">grab a bite</span> before the movie."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-language mr-3 text-green-600"></i> Grammar Focus: Simple Present Tense
+                    </h2>
+                    
+                    <div class="grammar-card text-gray-800 rounded-xl p-6 mb-8 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4">When to Use Simple Present Tense</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-2 text-green-800">Routines & Repeated Actions</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-green-700">go</span> to work every day."</p>
+                                <p class="text-gray-700">"She <span class="font-bold text-green-700">exercises</span> in the morning."</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-2 text-green-800">Facts & Truths</h4>
+                                <p class="text-gray-700">"The sun <span class="font-bold text-green-700">rises</span> in the east."</p>
+                                <p class="text-gray-700">"Water <span class="font-bold text-green-700">boils</span> at 100°C."</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-2 text-green-800">Opinions & Feelings</h4>
+                                <p class="text-gray-700">"I <span class="font-bold text-green-700">like</span> coffee in the morning."</p>
+                                <p class="text-gray-700">"He <span class="font-bold text-green-700">thinks</span> English is difficult."</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-2 text-green-800">Scheduled Events</h4>
+                                <p class="text-gray-700">"The train <span class="font-bold text-green-700">leaves</span> at 5 PM."</p>
+                                <p class="text-gray-700">"Class <span class="font-bold text-green-700">starts</span> at 9 AM."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Simple Present Tense Forms</h3>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="py-3 px-4 border-b text-left">Subject</th>
+                                        <th class="py-3 px-4 border-b text-left">Positive</th>
+                                        <th class="py-3 px-4 border-b text-left">Negative</th>
+                                        <th class="py-3 px-4 border-b text-left">Question</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-3 px-4 border-b">I / You / We / They</td>
+                                        <td class="py-3 px-4 border-b">I <span class="text-blue-600 font-bold">go</span></td>
+                                        <td class="py-3 px-4 border-b">I <span class="text-blue-600 font-bold">don't go</span></td>
+                                        <td class="py-3 px-4 border-b"><span class="text-blue-600 font-bold">Do</span> I <span class="text-blue-600 font-bold">go</span>?</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 border-b">He / She / It</td>
+                                        <td class="py-3 px-4 border-b">He <span class="text-blue-600 font-bold">goes</span></td>
+                                        <td class="py-3 px-4 border-b">He <span class="text-blue-600 font-bold">doesn't go</span></td>
+                                        <td class="py-3 px-4 border-b"><span class="text-blue-600 font-bold">Does</span> he <span class="text-blue-600 font-bold">go</span>?</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold text-blue-800 mb-2">Important Notes:</h4>
+                                <ul class="list-disc ml-5 text-blue-700">
+                                    <li>Add <span class="font-bold">-s</span> or <span class="font-bold">-es</span> for he/she/it</li>
+                                    <li>Use <span class="font-bold">do/does</span> for questions and negatives</li>
+                                    <li>Time expressions: always, usually, often, sometimes, never, every day</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold text-green-800 mb-2">Examples:</h4>
+                                <ul class="text-green-700">
+                                    <li>"I <span class="font-bold">don't like</span> waking up early."</li>
+                                    <li>"<span class="font-bold">Does</span> she <span class="font-bold">work</span> on weekends?"</li>
+                                    <li>"He <span class="font-bold">doesn't commute</span> by car."</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Practice Section -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-pencil-alt mr-3 text-indigo-600"></i> Practice Exercises
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 1: Fill in the Blanks</h3>
+                            <p class="text-gray-600 mb-4">Complete the sentences with the correct form of the verb in parentheses.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">1</span>
+                                    <div>
+                                        <p class="text-gray-800">I usually __________ (go) to the gym after work.</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">2</span>
+                                    <div>
+                                        <p class="text-gray-800">She __________ (not/like) to wake up early.</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">3</span>
+                                    <div>
+                                        <p class="text-gray-800">__________ you __________ (commute) by train?</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">4</span>
+                                    <div>
+                                        <p class="text-gray-800">He __________ (wind) down by watching TV in the evening.</p>
+                                        <input type="text" class="mt-2 w-full md:w-64 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Your answer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 2: Describe Your Typical Day</h3>
+                            <p class="text-gray-600 mb-4">Write a short paragraph about your typical day using the vocabulary and grammar we learned.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <textarea class="w-full h-40 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Start writing about your typical day here..."></textarea>
+                                <div class="mt-4 flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span>Try to use at least 5 vocabulary words from today's lesson</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation between days -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex justify-between">
+                <a href="../index.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                </a>
+                <a href="day2.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    Next: Day 2 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-language text-indigo-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">English Practice B1</h3>
+                    </div>
+                    <p class="text-gray-400">Improve your English skills with our structured B1 level practice classes.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="day1.html" class="text-gray-400 hover:text-white transition">Day 1</a></li>
+                        <li><a href="day2.html" class="text-gray-400 hover:text-white transition">Day 2</a></li>
+                        <li><a href="day3.html" class="text-gray-400 hover:text-white transition">Day 3</a></li>
+                        <li><a href="day4.html" class="text-gray-400 hover:text-white transition">Day 4</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Worksheets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Audio Lessons</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Video Content</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Reading Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>contact@englishb1.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+2519...</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Maraki English</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 English Practice B1 Class. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
