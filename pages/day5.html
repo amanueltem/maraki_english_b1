@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: Difficult Conversations | English Practice B1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .difficult-card {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+        }
+        .mend-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+        }
+        .confess-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+        .condolence-card {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+        .expression-card {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-left: 4px solid #009688;
+        }
+        .dialogue-card {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid #ffc107;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .conversation-bubble {
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin: 10px 0;
+            max-width: 80%;
+            position: relative;
+        }
+        .bubble-left {
+            background-color: #e3f2fd;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        .bubble-right {
+            background-color: #f5f5f5;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-language text-indigo-600 text-2xl"></i>
+                    <a href="../index.html" class="text-xl font-bold text-gray-800">English Practice B1</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    
+                    <!-- Days Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="nav-link text-indigo-600 font-medium flex items-center">
+                            Lessons <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </button>
+                        <div class="dropdown-content mt-2 py-2">
+                            <a href="day1.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 1: My Typical Day</a>
+                            <a href="day2.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 2: Looking Back</a>
+                            <a href="day3.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 3: Storytelling</a>
+                            <a href="day4.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                            <a href="day5.html" class="block px-4 py-2 text-indigo-600 bg-indigo-50 font-medium">Day 5: Difficult Conversations</a>
+                        </div>
+                    </div>
+                    
+                    <a href="../index.html#resources" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4">
+                    <a href="../index.html" class="text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    <div class="pl-4 border-l-2 border-indigo-200">
+                        <p class="text-sm text-gray-500 font-semibold mb-2">Lessons:</p>
+                        <a href="day1.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 1: My Typical Day</a>
+                        <a href="day2.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 2: Looking Back</a>
+                        <a href="day3.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 3: Storytelling</a>
+                        <a href="day4.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                        <a href="day5.html" class="block py-2 text-indigo-600 font-medium">Day 5: Difficult Conversations</a>
+                    </div>
+                    <a href="../index.html#resources" class="text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Day 5 Content -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="text-indigo-600 font-semibold">Day 5</span>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">Difficult Conversations</h1>
+                    <p class="text-gray-600 mt-4">Learn to navigate challenging discussions, express emotions, and handle sensitive topics with empathy and clarity.</p>
+                </div>
+                
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg mb-8">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-indigo-500 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-indigo-800">Learning Objectives</h3>
+                            <div class="mt-2 text-sm text-indigo-700">
+                                <p>By the end of this session, you will be able to:</p>
+                                <ul class="list-disc ml-5 mt-2">
+                                    <li>Use vocabulary for difficult conversations</li>
+                                    <li>Express empathy and understanding</li>
+                                    <li>Navigate sensitive topics like confession and repentance</li>
+                                    <li>Offer condolences and emotional support</li>
+                                    <li>Discuss relationship challenges appropriately</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Difficult Conversations Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-3 text-orange-500"></i> Difficult Conversations
+                    </h2>
+                    
+                    <div class="difficult-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Why Conversations Are Difficult</h4>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-heart-broken text-orange-500 mt-1 mr-2"></i>
+                                        <span>Emotional topics (relationships, feelings)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-user-secret text-orange-500 mt-1 mr-2"></i>
+                                        <span>Secrets or confessions</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-sad-tear text-orange-500 mt-1 mr-2"></i>
+                                        <span>Bad news or difficult situations</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-balance-scale text-orange-500 mt-1 mr-2"></i>
+                                        <span>Conflict or disagreement</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-2 text-orange-800">Approaching Difficult Topics</h4>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-clock text-orange-500 mt-1 mr-2"></i>
+                                        <span>Choose the right time and place</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-user-friends text-orange-500 mt-1 mr-2"></i>
+                                        <span>Consider the other person's feelings</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-comment-dots text-orange-500 mt-1 mr-2"></i>
+                                        <span>Use "I" statements to express feelings</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-ear-listen text-orange-500 mt-1 mr-2"></i>
+                                        <span>Listen actively without interrupting</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mend & Fix Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-heart mr-3 text-green-500"></i> Mend & Fix: Repairing Relationships
+                    </h2>
+                    
+                    <div class="mend-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-2 text-green-800">Mend (Verb)</h4>
+                                <p class="text-gray-700">To repair something that is broken or damaged, especially relationships</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-green-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"We need to <span class="font-bold">mend</span> our friendship."</li>
+                                        <li>"It will take time to <span class="font-bold">mend</span> our broken trust."</li>
+                                        <li>"I'm trying to <span class="font-bold">mend</span> things between us."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-2 text-green-800">Fix (Verb)</h4>
+                                <p class="text-gray-700">To repair or correct something that is wrong or broken</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-green-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"I want to <span class="font-bold">fix</span> this situation."</li>
+                                        <li>"Can we <span class="font-bold">fix</span> what went wrong?"</li>
+                                        <li>"I promise I'll <span class="font-bold">fix</span> my mistakes."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border border-green-200">
+                            <h4 class="font-bold text-green-800 mb-2">Related Expressions:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-green-700">"Make amends"</span></p>
+                                    <p class="text-sm text-gray-600">To do something to show you're sorry for a mistake</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-green-700">"Patch things up"</span></p>
+                                    <p class="text-sm text-gray-600">To repair a damaged relationship</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-green-700">"Clear the air"</span></p>
+                                    <p class="text-sm text-gray-600">To discuss problems openly to reduce tension</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-green-700">"Turn over a new leaf"</span></p>
+                                    <p class="text-sm text-gray-600">To start behaving in a better way</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Confess & Repent Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-user-secret mr-3 text-blue-500"></i> Confess & Repent: Admitting Mistakes
+                    </h2>
+                    
+                    <div class="confess-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold mb-2 text-blue-800">Confess (Verb)</h4>
+                                <p class="text-gray-700">To admit something that you feel embarrassed about</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-blue-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"I need to <span class="font-bold">confess</span> something to you."</li>
+                                        <li>"He finally <span class="font-bold">confessed</span> that he had lied."</li>
+                                        <li>"I <span class="font-bold">confess</span> that I made a terrible mistake."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold mb-2 text-blue-800">Repent (Verb)</h4>
+                                <p class="text-gray-700">To feel and show that you are sorry for something bad you have done</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-blue-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"I truly <span class="font-bold">repent</span> for my actions."</li>
+                                        <li>"He showed that he <span class="font-bold">repented</span> by changing his behavior."</li>
+                                        <li>"It's not enough to say sorry; you must <span class="font-bold">repent</span>."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border border-blue-200">
+                            <h4 class="font-bold text-blue-800 mb-2">Related Expressions:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-blue-700">"Come clean"</span></p>
+                                    <p class="text-sm text-gray-600">To tell the truth about something you've been hiding</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-blue-700">"Own up to"</span></p>
+                                    <p class="text-sm text-gray-600">To admit that you are responsible for something</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-blue-700">"Make a clean breast of"</span></p>
+                                    <p class="text-sm text-gray-600">To confess everything completely</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-blue-700">"Beg for forgiveness"</span></p>
+                                    <p class="text-sm text-gray-600">To ask very seriously to be forgiven</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Consider & React Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-brain mr-3 text-purple-500"></i> Consider & React: Thoughtful Responses
+                    </h2>
+                    
+                    <div class="expression-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                                <h4 class="font-bold mb-2 text-teal-800">Consider (Verb)</h4>
+                                <p class="text-gray-700">To think carefully about something before making a decision</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-teal-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"Please <span class="font-bold">consider</span> my feelings in this matter."</li>
+                                        <li>"I need time to <span class="font-bold">consider</span> what you've told me."</li>
+                                        <li>"Have you <span class="font-bold">considered</span> how this affects others?"</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                                <h4 class="font-bold mb-2 text-teal-800">React (Verb)</h4>
+                                <p class="text-gray-700">To behave in a particular way because of something that has happened</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-teal-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"How did she <span class="font-bold">react</span> when you told her?"</li>
+                                        <li>"I didn't know how to <span class="font-bold">react</span> to that news."</li>
+                                        <li>"Try to <span class="font-bold">react</span> calmly, even if you're upset."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Condolence & Empathy Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-hands-helping mr-3 text-purple-500"></i> Condolence & Empathy: Supporting Others
+                    </h2>
+                    
+                    <div class="condolence-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-bold mb-2 text-purple-800">Condolence (Noun)</h4>
+                                <p class="text-gray-700">Sympathy and sadness for the family or friends of a person who has died</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-purple-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"Please accept my <span class="font-bold">condolences</span>."</li>
+                                        <li>"I offered my <span class="font-bold">condolences</span> to the family."</li>
+                                        <li>"We sent a card expressing our <span class="font-bold">condolences</span>."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-bold mb-2 text-purple-800">Empathize (Verb)</h4>
+                                <p class="text-gray-700">To understand and share the feelings of another person</p>
+                                <div class="mt-3">
+                                    <p class="font-semibold text-purple-700">Examples:</p>
+                                    <ul class="text-sm text-gray-700 mt-1 space-y-1">
+                                        <li>"I can <span class="font-bold">empathize</span> with how you're feeling."</li>
+                                        <li>"It's important to <span class="font-bold">empathize</span> with others' struggles."</li>
+                                        <li>"I <span class="font-bold">empathize</span> with your situation."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border border-purple-200">
+                            <h4 class="font-bold text-purple-800 mb-2">Supportive Phrases:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-purple-700">"How are you holding up?"</span></p>
+                                    <p class="text-sm text-gray-600">Asking how someone is coping with a difficult situation</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-purple-700">"I'm here for you"</span></p>
+                                    <p class="text-sm text-gray-600">Offering support and availability</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-purple-700">"I can't imagine how hard this is"</span></p>
+                                    <p class="text-sm text-gray-600">Acknowledging the difficulty of someone's situation</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-purple-700">"Take all the time you need"</span></p>
+                                    <p class="text-sm text-gray-600">Giving someone space to process emotions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dialogue: Cheating Scenario -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-comments mr-3 text-yellow-500"></i> Dialogue: A Difficult Conversation
+                    </h2>
+                    
+                    <div class="dialogue-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-800">Scenario: Mark confesses to Sarah that he cheated on her</h3>
+                        
+                        <div class="flex flex-col space-y-4 mt-6">
+                            <div class="flex flex-col">
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Mark:</p>
+                                    <p>Sarah, we need to talk. There's something I need to confess.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Sarah:</p>
+                                    <p>What is it, Mark? You look serious.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Mark:</p>
+                                    <p>I... I made a terrible mistake. I cheated on you last month.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Sarah:</p>
+                                    <p>What? How could you? I trusted you!</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Mark:</p>
+                                    <p>I know, and I'm so sorry. I've been feeling awful about it. I truly repent for what I did.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Sarah:</p>
+                                    <p>Sorry? Do you have any idea how much this hurts?</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Mark:</p>
+                                    <p>I can only imagine. I was selfish and thoughtless. Please, just consider giving me a chance to fix this.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Sarah:</p>
+                                    <p>I need time to process this. I don't know how to react right now.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Mark:</p>
+                                    <p>I understand. Take all the time you need. I'll be here, ready to mend our relationship if you'll let me.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Sarah:</p>
+                                    <p>I need to go. I'll... I'll call you when I'm ready to talk.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-white p-4 rounded-lg border border-yellow-200">
+                            <h4 class="font-bold text-yellow-800 mb-2">Vocabulary from the dialogue:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">Confess</span> - to admit something</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">Cheat</span> - to be unfaithful in a relationship</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">Repent</span> - to feel sorry for wrong actions</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">Consider</span> - to think carefully about</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">Fix</span> - to repair or make right</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">React</span> - to respond to something</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">Mend</span> - to repair a relationship</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-yellow-700">Process</span> - to think through emotions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Practice Section -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-pencil-alt mr-3 text-indigo-600"></i> Practice Exercises
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 1: Vocabulary Matching</h3>
+                            <p class="text-gray-600 mb-4">Match the words with their definitions.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">1. Confess</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q1" class="mr-2"> A. To repair something broken
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q1" class="mr-2"> B. To admit something you've done wrong
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q1" class="mr-2"> C. To understand someone's feelings
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">2. Mend</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q2" class="mr-2"> A. To repair a relationship
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q2" class="mr-2"> B. To feel sorry for actions
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q2" class="mr-2"> C. To respond to something
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">3. Empathize</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q3" class="mr-2"> A. To admit a mistake
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q3" class="mr-2"> B. To understand and share feelings
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q3" class="mr-2"> C. To think carefully
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">4. Repent</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q4" class="mr-2"> A. To feel and show regret
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q4" class="mr-2"> B. To repair something
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q4" class="mr-2"> C. To respond to news
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 2: Role Play Scenarios</h3>
+                            <p class="text-gray-600 mb-4">Practice these difficult conversation scenarios with a partner.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-6">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Scenario 1: Ending a Friendship</h4>
+                                    <p class="text-gray-700 mb-3">You need to tell your close friend that you can't continue the friendship because they've been consistently dishonest with you.</p>
+                                    <div class="bg-blue-50 p-3 rounded-lg">
+                                        <p class="text-sm text-blue-800 font-semibold">Use these phrases:</p>
+                                        <ul class="text-sm text-blue-700 mt-1 list-disc ml-5">
+                                            <li>"I need to be honest with you about something..."</li>
+                                            <li>"I've noticed a pattern of..."</li>
+                                            <li>"This is difficult for me to say, but..."</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Scenario 2: Comforting a Grieving Friend</h4>
+                                    <p class="text-gray-700 mb-3">Your friend just lost a family member. You want to offer support without saying the wrong thing.</p>
+                                    <div class="bg-purple-50 p-3 rounded-lg">
+                                        <p class="text-sm text-purple-800 font-semibold">Use these phrases:</p>
+                                        <ul class="text-sm text-purple-700 mt-1 list-disc ml-5">
+                                            <li>"I'm so sorry for your loss."</li>
+                                            <li>"How are you holding up?"</li>
+                                            <li>"I'm here for you if you need anything."</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Scenario 3: Admitting a Work Mistake</h4>
+                                    <p class="text-gray-700 mb-3">You made a significant error at work that affected your team. You need to confess to your manager.</p>
+                                    <div class="bg-green-50 p-3 rounded-lg">
+                                        <p class="text-sm text-green-800 font-semibold">Use these phrases:</p>
+                                        <ul class="text-sm text-green-700 mt-1 list-disc ml-5">
+                                            <li>"I need to confess something..."</li>
+                                            <li>"I take full responsibility for..."</li>
+                                            <li>"I'm already working to fix this by..."</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 3: Write a Difficult Conversation</h3>
+                            <p class="text-gray-600 mb-4">Write a short dialogue between two people having a difficult conversation.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <textarea class="w-full h-40 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Write your dialogue here..."></textarea>
+                                <div class="mt-4 flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span>Try to use vocabulary from today's lesson: confess, repent, mend, empathize, etc.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation between days -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex justify-between">
+                <a href="day4.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    <i class="fas fa-arrow-left mr-2"></i> Previous: Day 4
+                </a>
+                <a href="../index.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    Back to Home <i class="fas fa-home ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-language text-indigo-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">English Practice B1</h3>
+                    </div>
+                    <p class="text-gray-400">Improve your English skills with our structured B1 level practice classes.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="day1.html" class="text-gray-400 hover:text-white transition">Day 1</a></li>
+                        <li><a href="day2.html" class="text-gray-400 hover:text-white transition">Day 2</a></li>
+                        <li><a href="day3.html" class="text-gray-400 hover:text-white transition">Day 3</a></li>
+                        <li><a href="day4.html" class="text-gray-400 hover:text-white transition">Day 4</a></li>
+                        <li><a href="day5.html" class="text-gray-400 hover:text-white transition">Day 5</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Worksheets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Audio Lessons</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Video Content</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Reading Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>contact@englishb1.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+2519...</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Maraki English</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 English Practice B1 Class. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
