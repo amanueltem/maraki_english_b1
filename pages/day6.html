@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6: Small Problems, Simple Solutions | English Practice B1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .problem-card {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+        }
+        .solution-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+        }
+        .suggestion-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+        .practice-card {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .conversation-bubble {
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin: 10px 0;
+            max-width: 80%;
+            position: relative;
+        }
+        .bubble-left {
+            background-color: #e3f2fd;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        .bubble-right {
+            background-color: #f5f5f5;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-language text-indigo-600 text-2xl"></i>
+                    <a href="../index.html" class="text-xl font-bold text-gray-800">English Practice B1</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    
+                    <!-- Days Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="nav-link text-indigo-600 font-medium flex items-center">
+                            Lessons <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </button>
+                        <div class="dropdown-content mt-2 py-2">
+                            <a href="day1.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 1: My Typical Day</a>
+                            <a href="day2.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 2: Looking Back</a>
+                            <a href="day3.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 3: Storytelling</a>
+                            <a href="day4.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                            <a href="day5.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 5: Difficult Conversations</a>
+                            <a href="day6.html" class="block px-4 py-2 text-indigo-600 bg-indigo-50 font-medium">Day 6: Small Problems, Simple Solutions</a>
+                        </div>
+                    </div>
+                    
+                    <a href="../index.html#resources" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4">
+                    <a href="../index.html" class="text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    <div class="pl-4 border-l-2 border-indigo-200">
+                        <p class="text-sm text-gray-500 font-semibold mb-2">Lessons:</p>
+                        <a href="day1.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 1: My Typical Day</a>
+                        <a href="day2.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 2: Looking Back</a>
+                        <a href="day3.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 3: Storytelling</a>
+                        <a href="day4.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                        <a href="day5.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 5: Difficult Conversations</a>
+                        <a href="day6.html" class="block py-2 text-indigo-600 font-medium">Day 6: Small Problems, Simple Solutions</a>
+                    </div>
+                    <a href="../index.html#resources" class="text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Day 6 Content -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="text-indigo-600 font-semibold">Day 6</span>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">Small Problems, Simple Solutions</h1>
+                    <p class="text-gray-600 mt-4">Learn to talk about daily inconveniences and offer practical suggestions using common English phrases.</p>
+                </div>
+                
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg mb-8">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-indigo-500 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-indigo-800">Learning Objectives</h3>
+                            <div class="mt-2 text-sm text-indigo-700">
+                                <p>By the end of this session, you will be able to:</p>
+                                <ul class="list-disc ml-5 mt-2">
+                                    <li>Describe common daily problems and inconveniences</li>
+                                    <li>Use suggestion phrases to offer solutions</li>
+                                    <li>Discuss practical ways to solve everyday issues</li>
+                                    <li>Participate in conversations about problem-solving</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Common Problems Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-exclamation-circle mr-3 text-orange-500"></i> Common Daily Problems
+                    </h2>
+                    
+                    <div class="problem-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-3 text-orange-800 flex items-center">
+                                    <i class="fas fa-wifi mr-2"></i> Technology Issues
+                                </h4>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-arrow-down text-orange-500 mt-1 mr-2"></i>
+                                        <span>"My internet is <span class="font-bold">so slow</span> today."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-battery-quarter text-orange-500 mt-1 mr-2"></i>
+                                        <span>"My phone battery <span class="font-bold">dies</span> too quickly."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-laptop text-orange-500 mt-1 mr-2"></i>
+                                        <span>"My computer <span class="font-bold">keeps freezing</span>."</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-3 text-orange-800 flex items-center">
+                                    <i class="fas fa-bed mr-2"></i> Time Management
+                                </h4>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-clock text-orange-500 mt-1 mr-2"></i>
+                                        <span>"I <span class="font-bold">always wake up late</span> for work."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-sun text-orange-500 mt-1 mr-2"></i>
+                                        <span>"I <span class="font-bold">oversleep</span> almost every morning."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-running text-orange-500 mt-1 mr-2"></i>
+                                        <span>"I'm <span class="font-bold">always rushing</span> everywhere."</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-3 text-orange-800 flex items-center">
+                                    <i class="fas fa-car mr-2"></i> Transportation Issues
+                                </h4>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-traffic-light text-orange-500 mt-1 mr-2"></i>
+                                        <span>"There was a <span class="font-bold">heavy traffic jam</span>."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-car-crash text-orange-500 mt-1 mr-2"></i>
+                                        <span>"My car <span class="font-bold">broke down</span> on the way to work."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-police-box text-orange-500 mt-1 mr-2"></i>
+                                        <span>"The police <span class="font-bold">pulled me over</span> for speeding."</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-3 text-orange-800 flex items-center">
+                                    <i class="fas fa-coins mr-2"></i> Money & Personal Issues
+                                </h4>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-money-bill-wave text-orange-500 mt-1 mr-2"></i>
+                                        <span>"I <span class="font-bold">spend too much money</span> on eating out."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-search text-orange-500 mt-1 mr-2"></i>
+                                        <span>"I <span class="font-bold">lost my keys</span> again."</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-coffee text-orange-500 mt-1 mr-2"></i>
+                                        <span>"I <span class="font-bold">spilled coffee</span> on my shirt and now there's a <span class="font-bold">stain</span>."</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Suggestion Phrases Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-lightbulb mr-3 text-blue-500"></i> Suggestion Phrases
+                    </h2>
+                    
+                    <div class="suggestion-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold mb-3 text-blue-800">Polite Suggestions</h4>
+                                <ul class="text-gray-700 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-comment text-blue-500 mt-1 mr-2"></i>
+                                        <div>
+                                            <p class="font-bold">"You could try..."</p>
+                                            <p class="text-sm text-gray-600 mt-1">"You could try setting multiple alarms."</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-comment text-blue-500 mt-1 mr-2"></i>
+                                        <div>
+                                            <p class="font-bold">"Why don't you...?"</p>
+                                            <p class="text-sm text-gray-600 mt-1">"Why don't you take a different route to work?"</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-comment text-blue-500 mt-1 mr-2"></i>
+                                        <div>
+                                            <p class="font-bold">"Have you thought about...?"</p>
+                                            <p class="text-sm text-gray-600 mt-1">"Have you thought about creating a budget?"</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold mb-3 text-blue-800">Direct Suggestions</h4>
+                                <ul class="text-gray-700 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-comment text-blue-500 mt-1 mr-2"></i>
+                                        <div>
+                                            <p class="font-bold">"You should..."</p>
+                                            <p class="text-sm text-gray-600 mt-1">"You should call a mechanic to check your car."</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-comment text-blue-500 mt-1 mr-2"></i>
+                                        <div>
+                                            <p class="font-bold">"It might help if you..."</p>
+                                            <p class="text-sm text-gray-600 mt-1">"It might help if you restart your router."</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-comment text-blue-500 mt-1 mr-2"></i>
+                                        <div>
+                                            <p class="font-bold">"How about...?"</p>
+                                            <p class="text-sm text-gray-600 mt-1">"How about packing your bag the night before?"</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border border-blue-200">
+                            <h4 class="font-bold text-blue-800 mb-2">Responding to Suggestions:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-blue-700">Positive Responses</span></p>
+                                    <ul class="text-sm text-gray-600 mt-1 space-y-1">
+                                        <li>"That's a good idea!"</li>
+                                        <li>"I'll try that, thanks."</li>
+                                        <li>"Why didn't I think of that?"</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700"><span class="font-bold text-blue-700">Hesitant Responses</span></p>
+                                    <ul class="text-sm text-gray-600 mt-1 space-y-1">
+                                        <li>"I'm not sure that would work."</li>
+                                        <li>"I've tried that before."</li>
+                                        <li>"That might be difficult for me."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solutions Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-check-circle mr-3 text-green-500"></i> Practical Solutions
+                    </h2>
+                    
+                    <div class="solution-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-3 text-green-800">Technology Problems</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="font-semibold text-green-700">Slow Internet</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Restart your router</li>
+                                            <li>• Limit devices connected to Wi-Fi</li>
+                                            <li>• Contact your internet provider</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-green-700">Phone Battery Dies Quickly</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Reduce screen brightness</li>
+                                            <li>• Close unused apps</li>
+                                            <li>• Carry a portable charger</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-3 text-green-800">Time Management</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="font-semibold text-green-700">Always Waking Up Late</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Set multiple alarms</li>
+                                            <li>• Place alarm across the room</li>
+                                            <li>• Go to bed earlier</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-green-700">Oversleeping</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Establish a consistent sleep schedule</li>
+                                            <li>• Avoid screens before bed</li>
+                                            <li>• Use a sunrise alarm clock</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-3 text-green-800">Transportation Issues</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="font-semibold text-green-700">Heavy Traffic Jams</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Leave earlier or later to avoid rush hour</li>
+                                            <li>• Use navigation apps to find alternative routes</li>
+                                            <li>• Consider public transportation</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-green-700">Car Broke Down</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Call roadside assistance</li>
+                                            <li>• Have emergency contacts saved</li>
+                                            <li>• Keep your car regularly maintained</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-3 text-green-800">Money & Personal Issues</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="font-semibold text-green-700">Spending Too Much Money</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Create a weekly budget</li>
+                                            <li>• Cook at home more often</li>
+                                            <li>• Use cash instead of cards</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-green-700">Spilled Coffee / Stains</p>
+                                        <ul class="text-sm text-gray-700 mt-1 ml-4 space-y-1">
+                                            <li>• Immediately rinse with cold water</li>
+                                            <li>• Use stain remover</li>
+                                            <li>• Keep a stain removal pen at work</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dialogue Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-comments mr-3 text-purple-500"></i> Dialogue: Problem-Solving Conversation
+                    </h2>
+                    
+                    <div class="practice-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 text-purple-800">Scenario: Maria is complaining to her friend Tom about her daily problems</h3>
+                        
+                        <div class="flex flex-col space-y-4 mt-6">
+                            <div class="flex flex-col">
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>I'm having such a bad day! First, I overslept and was late for work.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Tom:</p>
+                                    <p>Oh no! Why don't you set multiple alarms? That usually helps me.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>I tried that, but I just turn them off and go back to sleep. Then, when I was rushing to work, I got stuck in a terrible traffic jam!</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Tom:</p>
+                                    <p>You could try leaving 30 minutes earlier. The traffic is much lighter then.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>But if I leave earlier, I'd have to wake up even earlier! And to make things worse, I spilled coffee on my white blouse and now there's a huge stain.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Tom:</p>
+                                    <p>Have you thought about keeping a spare shirt at work? I always do that for emergencies.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>That's actually a good idea. I should do that. And my internet at home has been so slow lately too.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Tom:</p>
+                                    <p>You should contact your internet provider. It might be a problem with your connection.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>Thanks for all the suggestions, Tom. I feel better already!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Practice Section -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-pencil-alt mr-3 text-indigo-600"></i> Practice Exercises
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 1: Match Problems with Solutions</h3>
+                            <p class="text-gray-600 mb-4">Match each problem with the most appropriate solution.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">1. I always wake up late for work.</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q1" class="mr-2"> A. Contact your internet provider
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q1" class="mr-2"> B. Set multiple alarms
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q1" class="mr-2"> C. Create a weekly budget
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">2. My internet is very slow.</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q2" class="mr-2"> A. Restart your router
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q2" class="mr-2"> B. Leave home earlier
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q2" class="mr-2"> C. Cook meals at home
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">3. I spend too much money eating out.</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q3" class="mr-2"> A. Use a navigation app
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q3" class="mr-2"> B. Create a weekly budget
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q3" class="mr-2"> C. Place alarm across the room
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <p class="font-bold text-gray-800 mb-2">4. There's always heavy traffic on my way to work.</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q4" class="mr-2"> A. Keep a spare shirt at work
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q4" class="mr-2"> B. Leave home earlier
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="q4" class="mr-2"> C. Reduce screen brightness
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 2: Create Suggestions</h3>
+                            <p class="text-gray-600 mb-4">Write suggestions for these problems using the phrases we learned.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-6">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Problem 1: "I always lose my keys."</h4>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-start">
+                                            <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">a</span>
+                                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Why don't you...">
+                                        </div>
+                                        <div class="flex items-start">
+                                            <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">b</span>
+                                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="You could try...">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Problem 2: "My phone battery dies too quickly."</h4>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-start">
+                                            <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">a</span>
+                                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Have you thought about...">
+                                        </div>
+                                        <div class="flex items-start">
+                                            <span class="bg-indigo-100 text-indigo-800 font-bold py-1 px-3 rounded-full mr-3 mt-1">b</span>
+                                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="You should...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 3: Role Play Scenarios</h3>
+                            <p class="text-gray-600 mb-4">Practice these problem-solving conversations with a partner.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-6">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Scenario 1: Car Problems</h4>
+                                    <p class="text-gray-700 mb-3">Person A: Your car broke down on the way to an important meeting. You're telling your friend about it.</p>
+                                    <p class="text-gray-700 mb-3">Person B: Your friend is complaining about their car problems. Offer helpful suggestions.</p>
+                                    <div class="bg-blue-50 p-3 rounded-lg">
+                                        <p class="text-sm text-blue-800 font-semibold">Use these phrases:</p>
+                                        <ul class="text-sm text-blue-700 mt-1 list-disc ml-5">
+                                            <li>"You could try calling..."</li>
+                                            <li>"Why don't you...?"</li>
+                                            <li>"Have you thought about...?"</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Scenario 2: Financial Issues</h4>
+                                    <p class="text-gray-700 mb-3">Person A: You're spending too much money each month and can't save anything.</p>
+                                    <p class="text-gray-700 mb-3">Person B: Your friend is worried about their finances. Offer practical suggestions.</p>
+                                    <div class="bg-green-50 p-3 rounded-lg">
+                                        <p class="text-sm text-green-800 font-semibold">Use these phrases:</p>
+                                        <ul class="text-sm text-green-700 mt-1 list-disc ml-5">
+                                            <li>"You should create..."</li>
+                                            <li>"It might help if you..."</li>
+                                            <li>"How about...?"</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation between days -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex justify-between">
+                <a href="day5.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    <i class="fas fa-arrow-left mr-2"></i> Previous: Day 5
+                </a>
+                <a href="../index.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    Back to Home <i class="fas fa-home ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-language text-indigo-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">English Practice B1</h3>
+                    </div>
+                    <p class="text-gray-400">Improve your English skills with our structured B1 level practice classes.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="day1.html" class="text-gray-400 hover:text-white transition">Day 1</a></li>
+                        <li><a href="day2.html" class="text-gray-400 hover:text-white transition">Day 2</a></li>
+                        <li><a href="day3.html" class="text-gray-400 hover:text-white transition">Day 3</a></li>
+                        <li><a href="day4.html" class="text-gray-400 hover:text-white transition">Day 4</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Worksheets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Audio Lessons</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Video Content</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Reading Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>contact@englishb1.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+2519...</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Maraki English</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 English Practice B1 Class. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
