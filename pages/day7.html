@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7: Modals and Deduction | English Practice B1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .can-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+        }
+        .could-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+        .should-card {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+        }
+        .may-might-card {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+        .must-card {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 4px solid #f44336;
+        }
+        .linking-card {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-left: 4px solid #009688;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .conversation-bubble {
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin: 10px 0;
+            max-width: 80%;
+            position: relative;
+        }
+        .bubble-left {
+            background-color: #e3f2fd;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        .bubble-right {
+            background-color: #f5f5f5;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+        .modal-example {
+            background-color: #f9f9f9;
+            border-left: 3px solid #4F46E5;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-language text-indigo-600 text-2xl"></i>
+                    <a href="../index.html" class="text-xl font-bold text-gray-800">English Practice B1</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    
+                    <!-- Days Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="nav-link text-indigo-600 font-medium flex items-center">
+                            Lessons <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </button>
+                        <div class="dropdown-content mt-2 py-2">
+                            <a href="day1.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 1: My Typical Day</a>
+                            <a href="day2.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 2: Looking Back</a>
+                            <a href="day3.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 3: Storytelling</a>
+                            <a href="day4.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                            <a href="day5.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 5: Difficult Conversations</a>
+                            <a href="day6.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Day 6: Small Problems, Simple Solutions</a>
+                            <a href="day7.html" class="block px-4 py-2 text-indigo-600 bg-indigo-50 font-medium">Day 7: Modals and Deduction</a>
+                        </div>
+                    </div>
+                    
+                    <a href="../index.html#resources" class="nav-link text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4">
+                    <a href="../index.html" class="text-gray-700 font-medium hover:text-indigo-600">Home</a>
+                    <div class="pl-4 border-l-2 border-indigo-200">
+                        <p class="text-sm text-gray-500 font-semibold mb-2">Lessons:</p>
+                        <a href="day1.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 1: My Typical Day</a>
+                        <a href="day2.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 2: Looking Back</a>
+                        <a href="day3.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 3: Storytelling</a>
+                        <a href="day4.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 4: Time Will Tell</a>
+                        <a href="day5.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 5: Difficult Conversations</a>
+                        <a href="day6.html" class="block py-2 text-gray-700 hover:text-indigo-600">Day 6: Small Problems, Simple Solutions</a>
+                        <a href="day7.html" class="block py-2 text-indigo-600 font-medium">Day 7: Modals and Deduction</a>
+                    </div>
+                    <a href="../index.html#resources" class="text-gray-700 font-medium hover:text-indigo-600">Resources</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Day 7 Content -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="text-indigo-600 font-semibold">Day 7</span>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">Modals and Deduction</h1>
+                    <p class="text-gray-600 mt-4">Master modal verbs to express ability, possibility, permission, requests, advice, obligation, and deduction.</p>
+                </div>
+                
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg mb-8">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-indigo-500 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-indigo-800">Learning Objectives</h3>
+                            <div class="mt-2 text-sm text-indigo-700">
+                                <p>By the end of this session, you will be able to:</p>
+                                <ul class="list-disc ml-5 mt-2">
+                                    <li>Use modal verbs to express different functions</li>
+                                    <li>Make deductions using modal verbs</li>
+                                    <li>Ask polite questions and make requests</li>
+                                    <li>Connect ideas using linking words</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Can Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-check-circle mr-3 text-green-500"></i> Can - Ability, Possibility, Requests
+                    </h2>
+                    
+                    <div class="can-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-3 text-green-800 flex items-center">
+                                    <i class="fas fa-running mr-2"></i> Ability
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"I <span class="font-bold">can swim</span> very well."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"She <span class="font-bold">can speak</span> three languages."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"They <span class="font-bold">can't dance</span> salsa."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-3 text-green-800 flex items-center">
+                                    <i class="fas fa-question-circle mr-2"></i> Requests & Permission
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">Can you help</span> me with this?"</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">Can I borrow</span> your pen?"</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"You <span class="font-bold">can use</span> my computer."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                <h4 class="font-bold mb-3 text-green-800 flex items-center">
+                                    <i class="fas fa-lightbulb mr-2"></i> Possibility & Deduction
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"She <span class="font-bold">can get</span> a ride from her brother."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"You <span class="font-bold">can't be serious</span>!"</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"That <span class="font-bold">can't be</span> right."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Could Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-history mr-3 text-blue-500"></i> Could - Past Ability, Polite Requests, Possibility
+                    </h2>
+                    
+                    <div class="could-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold mb-3 text-blue-800 flex items-center">
+                                    <i class="fas fa-clock mr-2"></i> Past Ability
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"I <span class="font-bold">could dance</span> well when I was younger."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"She <span class="font-bold">could speak</span> French fluently."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"I <span class="font-bold">couldn't hear</span> you."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold mb-3 text-blue-800 flex items-center">
+                                    <i class="fas fa-handshake mr-2"></i> Polite Requests
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">Could you show</span> me the way?"</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">Could I have</span> a glass of water?"</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">Could you please</span> repeat that?"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold mb-3 text-blue-800 flex items-center">
+                                    <i class="fas fa-lightbulb mr-2"></i> Possibility & Suggestions
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"He <span class="font-bold">could come</span> to the party."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"We <span class="font-bold">could watch</span> a movie."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"It <span class="font-bold">could rain</span> later."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Should Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-comment mr-3 text-orange-500"></i> Should - Advice & Suggestions
+                    </h2>
+                    
+                    <div class="should-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-3 text-orange-800 flex items-center">
+                                    <i class="fas fa-user-check mr-2"></i> Advice & Suggestions
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"You <span class="font-bold">should go</span> to the doctor."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"We <span class="font-bold">should leave</span> early to avoid traffic."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"He <span class="font-bold">should study</span> more for the exam."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                                <h4 class="font-bold mb-3 text-orange-800 flex items-center">
+                                    <i class="fas fa-exclamation-circle mr-2"></i> Regret & Criticism
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"I <span class="font-bold">should have known</span> better."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"You <span class="font-bold">shouldn't have said</span> that."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"She <span class="font-bold">should have called</span> me."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- May & Might Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-question mr-3 text-purple-500"></i> May & Might - Possibility & Permission
+                    </h2>
+                    
+                    <div class="may-might-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-bold mb-3 text-purple-800 flex items-center">
+                                    <i class="fas fa-hand-paper mr-2"></i> Permission
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">May I leave</span> early today?"</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">May I use</span> your phone?"</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"You <span class="font-bold">may go</span> now."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-bold mb-3 text-purple-800 flex items-center">
+                                    <i class="fas fa-lightbulb mr-2"></i> Possibility
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"She <span class="font-bold">might be</span> late."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"He <span class="font-bold">might not know</span> about the meeting."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"It <span class="font-bold">may rain</span> tomorrow."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Must & Have to Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-3 text-red-500"></i> Must & Have to - Obligation & Necessity
+                    </h2>
+                    
+                    <div class="must-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                                <h4 class="font-bold mb-3 text-red-800 flex items-center">
+                                    <i class="fas fa-gavel mr-2"></i> Obligation
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"You <span class="font-bold">must wear</span> a seat belt."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"Students <span class="font-bold">must complete</span> all assignments."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"You <span class="font-bold">have to study</span> for the test."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                                <h4 class="font-bold mb-3 text-red-800 flex items-center">
+                                    <i class="fas fa-tint mr-2"></i> Necessity
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="modal-example">
+                                        <p>"I'm thirsty. I <span class="font-bold">need to drink</span> water."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"She <span class="font-bold">has to finish</span> her work."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"We <span class="font-bold">need to buy</span> groceries."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Linking Words Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-link mr-3 text-teal-500"></i> Linking Words
+                    </h2>
+                    
+                    <div class="linking-card text-gray-800 rounded-xl p-6 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                                <h4 class="font-bold mb-3 text-teal-800">Adding Information</h4>
+                                <div class="space-y-2">
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">Besides</span> English, she speaks French."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"<span class="font-bold">In addition</span> to his job, he volunteers."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"She's smart. <span class="font-bold">Moreover</span>, she's hardworking."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"I like coffee. I <span class="font-bold">also</span> like tea."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                                <h4 class="font-bold mb-3 text-teal-800">Contrast & Cause/Effect</h4>
+                                <div class="space-y-2">
+                                    <div class="modal-example">
+                                        <p>"I wanted to go, <span class="font-bold">but</span> I was tired."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"It's expensive. <span class="font-bold">However</span>, it's good quality."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"It was raining, <span class="font-bold">so</span> we stayed home."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"He studied hard. <span class="font-bold">Therefore</span>, he passed."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"She was late. <span class="font-bold">As a result</span>, she missed the bus."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                                <h4 class="font-bold mb-3 text-teal-800">Emphasis & Condition</h4>
+                                <div class="space-y-2">
+                                    <div class="modal-example">
+                                        <p>"I love languages. <span class="font-bold">In fact</span>, I'm learning three."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"It was difficult. <span class="font-bold">Indeed</span>, it was the hardest test."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"We'll go <span class="font-bold">unless</span> it rains."</p>
+                                    </div>
+                                    <div class="modal-example">
+                                        <p>"Study hard; <span class="font-bold">otherwise</span>, you might fail."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dialogue Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-comments mr-3 text-indigo-500"></i> Dialogue: Using Modals in Conversation
+                    </h2>
+                    
+                    <div class="bg-indigo-50 border border-indigo-100 text-gray-800 rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 text-indigo-800">Scenario: Maria and Tom are planning their weekend</h3>
+                        
+                        <div class="flex flex-col space-y-4 mt-6">
+                            <div class="flex flex-col">
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>What <span class="font-bold">should</span> we do this weekend? I <span class="font-bold">can</span> go out on Saturday, but I <span class="font-bold">have to</span> study on Sunday.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Tom:</p>
+                                    <p>We <span class="font-bold">could</span> go hiking. The weather <span class="font-bold">might</span> be nice. <span class="font-bold">However</span>, it <span class="font-bold">may</span> rain, so we <span class="font-bold">should</span> have a backup plan.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p><span class="font-bold">Could</span> you check the weather forecast? <span class="font-bold">Besides</span> hiking, we <span class="font-bold">could</span> go to the museum. I've heard it's interesting.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Tom:</p>
+                                    <p>That's a good idea. We <span class="font-bold">must</span> buy tickets online first. <span class="font-bold">Otherwise</span>, we <span class="font-bold">might not</span> get in.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>You <span class="font-bold">can't be serious</span>! Do we really <span class="font-bold">need to</span> book in advance?</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-right">
+                                    <p class="font-semibold text-gray-700">Tom:</p>
+                                    <p>Yes, <span class="font-bold">in fact</span>, it's usually sold out on weekends. <span class="font-bold">Therefore</span>, we <span class="font-bold">should</span> book now.</p>
+                                </div>
+                                
+                                <div class="conversation-bubble bubble-left">
+                                    <p class="font-semibold text-blue-700">Maria:</p>
+                                    <p>Okay, <span class="font-bold">may</span> I use your laptop to book the tickets? <span class="font-bold">As a result</span> of your suggestion, we'll have a great weekend!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Practice Section -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-pencil-alt mr-3 text-indigo-600"></i> Practice Exercises
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 1: Choose the Correct Modal</h3>
+                            <p class="text-gray-600 mb-4">Select the appropriate modal verb for each sentence.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <p class="font-bold text-gray-800 mb-2">1. I ________ speak Spanish when I was younger.</p>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q1" class="mr-2"> A. can
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q1" class="mr-2"> B. could
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q1" class="mr-2"> C. should
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <p class="font-bold text-gray-800 mb-2">2. You ________ wear a helmet when riding a bike.</p>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q2" class="mr-2"> A. might
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q2" class="mr-2"> B. must
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q2" class="mr-2"> C. could
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <p class="font-bold text-gray-800 mb-2">3. ________ I borrow your pen, please?</p>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q3" class="mr-2"> A. Should
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q3" class="mr-2"> B. May
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q3" class="mr-2"> C. Must
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <p class="font-bold text-gray-800 mb-2">4. It ________ rain later, so take an umbrella.</p>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q4" class="mr-2"> A. can
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q4" class="mr-2"> B. might
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q4" class="mr-2"> C. should
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 2: Complete with Linking Words</h3>
+                            <p class="text-gray-600 mb-4">Fill in the blanks with appropriate linking words.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-6">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Sentence 1: "I like coffee. ________, I prefer tea."</h4>
+                                    <div class="mt-2">
+                                        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter linking word">
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Sentence 2: "She studied hard. ________, she passed the exam."</h4>
+                                    <div class="mt-2">
+                                        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter linking word">
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Sentence 3: "We'll have a picnic ________ it doesn't rain."</h4>
+                                    <div class="mt-2">
+                                        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter linking word">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Exercise 3: Role Play Scenarios</h3>
+                            <p class="text-gray-600 mb-4">Practice these conversations with a partner using modals and linking words.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg space-y-6">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Scenario 1: Asking for Permission</h4>
+                                    <p class="text-gray-700 mb-3">Person A: You want to leave work early to go to a doctor's appointment.</p>
+                                    <p class="text-gray-700 mb-3">Person B: You are the boss. Your employee is asking to leave early.</p>
+                                    <div class="bg-blue-50 p-3 rounded-lg">
+                                        <p class="text-sm text-blue-800 font-semibold">Use these modals:</p>
+                                        <ul class="text-sm text-blue-700 mt-1 list-disc ml-5">
+                                            <li>"May I...?"</li>
+                                            <li>"Could I...?"</li>
+                                            <li>"Can I...?"</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-gray-800 mb-2">Scenario 2: Giving Advice</h4>
+                                    <p class="text-gray-700 mb-3">Person A: You're feeling sick but have an important meeting.</p>
+                                    <p class="text-gray-700 mb-3">Person B: Your friend is sick. Give them advice about what to do.</p>
+                                    <div class="bg-green-50 p-3 rounded-lg">
+                                        <p class="text-sm text-green-800 font-semibold">Use these modals:</p>
+                                        <ul class="text-sm text-green-700 mt-1 list-disc ml-5">
+                                            <li>"You should..."</li>
+                                            <li>"You could..."</li>
+                                            <li>"You might want to..."</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation between days -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex justify-between">
+                <a href="day6.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    <i class="fas fa-arrow-left mr-2"></i> Previous: Day 6
+                </a>
+                <a href="../index.html" class="flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    Back to Home <i class="fas fa-home ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-language text-indigo-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">English Practice B1</h3>
+                    </div>
+                    <p class="text-gray-400">Improve your English skills with our structured B1 level practice classes.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="day1.html" class="text-gray-400 hover:text-white transition">Day 1</a></li>
+                        <li><a href="day2.html" class="text-gray-400 hover:text-white transition">Day 2</a></li>
+                        <li><a href="day3.html" class="text-gray-400 hover:text-white transition">Day 3</a></li>
+                        <li><a href="day4.html" class="text-gray-400 hover:text-white transition">Day 4</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Worksheets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Audio Lessons</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Video Content</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Reading Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>contact@englishb1.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+2519...</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Maraki English</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 English Practice B1 Class. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
